@@ -8,6 +8,14 @@ export const CssForm = styled.form`
     justify-content: space-between;
 
     background: var(--grey-3);
+
+    button{
+        background: var(--color-primary);
+    }
+    input{
+        background: var(--grey-2);
+
+    }
 `
 export const CssContainer = styled.div`
     height:400px;
@@ -50,6 +58,14 @@ export const CssRegisterForm = styled.form`
     padding: 5%;
     margin-bottom: 20%;
     padding-bottom: 20px;
+    
+    button{
+        background: var(--color-primary);
+    }
+    input{
+        background: var(--grey-2);
+
+    }
 `
 
 export const CssHeader = styled.div`
