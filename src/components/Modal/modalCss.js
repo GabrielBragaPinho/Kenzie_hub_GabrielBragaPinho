@@ -34,6 +34,12 @@ export const AddModalCss = styled.div`
         justify-content: space-between;
         padding:5%;
     }
+    button{
+        background: var(--color-primary);
+    }
+    input{
+        color:white;
+    }
     .backdrop{
         height:100vh;
         width:100vw;
@@ -81,6 +87,9 @@ export const UDModalCss = styled.div`
         justify-content: space-between;
         padding:5%;
     }
+    input{
+        color:white;
+    }
     .backdrop{
         height:100vh;
         width:100vw;
@@ -99,6 +108,7 @@ export const UDModalCss = styled.div`
     }
     .btn1{
         width:60%;
+        background: var(--color-primary);
     }
     .btn2{
         color: white;
