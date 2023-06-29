@@ -85,4 +85,10 @@ export const GlobalStyles = createGlobalStyle`
         background: var(--grey-2);
         padding-left: 10px;
     }
+     
+    @media (min-width: 800px){
+       span{
+        width:749px;
+       }
+    }
 `

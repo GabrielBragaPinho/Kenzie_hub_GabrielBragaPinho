@@ -1,38 +1,23 @@
 import logo from "../../assets/kenzie hub logo.png"
 import { useForm } from "react-hook-form"
-import { api } from "../../services/api"
-import { useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { loginScheme } from "./loginScheme"
 import { Link } from "react-router-dom"
+import { UserContext } from "../../providers/UserContext"
+import { useContext } from "react"
 
 import { CssBtnGrey, CssContainer, CssError, CssForm, CssLogo, GreyText } from "../../styles/styles"
 
 
-export const Login = ({user, setUser}) => {
+export const Login = () => {
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: zodResolver(loginScheme)
     })
 
-    const navigate = useNavigate();
-
-    const loginAq = async(formData) => {
-        try{
-            const {data} = await api.post("/sessions", formData)
-            
-            setUser(data.user)
-
-            localStorage.setItem("@USERID", data.user.id)
-            localStorage.setItem("@TOKEN", data.token)
-            
-            navigate("/home")
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    const { userLogin } = useContext(UserContext);
 
     const submit = async(formData) => {
-        await loginAq(formData);
+        await userLogin(formData);
     }
 
     return (

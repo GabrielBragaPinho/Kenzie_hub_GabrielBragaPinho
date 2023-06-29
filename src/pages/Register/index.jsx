@@ -1,30 +1,21 @@
 import logo from "../../assets/kenzie hub logo.png"
 import { useForm } from "react-hook-form"
-import { api } from "../../services/api"
-import { useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { formScheme } from "./formScheme"
 import { Link } from "react-router-dom"
 import { CssHeader, CssRegisterForm, ExitBtn, CssError, GreyText } from "../../styles/styles"
+import { useContext } from "react"
+import { UserContext } from "../../providers/UserContext"
 
 export const Register = () => {
     const { register, handleSubmit, formState: {errors}, reset } = useForm({
         resolver: zodResolver(formScheme)
     });
 
-    const navigate = useNavigate();
-
-    const createUser = async(formData) => {
-        try {
-            const {data} = await api.post("/users", formData)
-            navigate("/")
-        } catch (error) {
-            // console.log(error)
-        }
-    }
-
+    const { userRegister } = useContext(UserContext);
+    
     const submit = async(formData) => {
-        await createUser(formData);
+        await userRegister(formData);
         reset();
     }
 
